@@ -11,7 +11,6 @@ from database.dbapi import InsuranceRatesService
 env = os.environ.get
 load_dotenv('./.env')
 DEBUG = (env('DEBUG').lower()=="true")
-print(DEBUG)
 POSTGRE_CON = f"postgres://{env('POSTGRES_USER')}:{env('POSTGRES_PASSWORD')}" \
               f"@{env('POSTGRES_HOST')}:{env('POSTGRES_PORT')}/{env('POSTGRES_DB')}"
 
