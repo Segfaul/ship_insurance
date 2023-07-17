@@ -1,10 +1,13 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+.pytest_cache/
 *.py[cod]
 *$py.class
 
-# Logger
+# Debug & Logger
 *.log
+*.sqlite3
+*.sqlite3-journal
 
 # Environments
 .env
