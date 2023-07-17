@@ -3,8 +3,10 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-# Logger
+# Debug & Logger
 *.log
+*.sqlite3
+*.sqlite3-journal
 
 # Environments
 .env
