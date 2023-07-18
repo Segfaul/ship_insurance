@@ -1,30 +1,12 @@
 from datetime import datetime
-import json
 
-from tortoise import Tortoise
-
-from database.models import Rates
+from app.models.models import Rates
 
 
-class InsuranceRatesService:
+class InsuranceService:
 
-    def __init__(self, debug: bool = True,
-                 postgre_con: str = "postgres://postgres:pass@db.host:5432/somedb") -> None:
-        
-        self.db_url = "sqlite://db.sqlite3" if debug else postgre_con
-
-    async def init_db(self) -> None:
-        await Tortoise.init(
-            db_url=self.db_url,
-            modules={"models": ["database.models"]},
-        )
-        await Tortoise.generate_schemas()
-
-        contains_data: bool = await Rates.all().exists()
-        if not contains_data:
-            with open('database/test_rates.json') as file:
-                start_rates = json.load(file)
-            await self.populate_db(start_rates)
+    def __init__(self) -> None:
+        ...
 
     @classmethod
     async def populate_db(cls, rates: dict = None) -> dict:
@@ -89,7 +71,3 @@ class InsuranceRatesService:
             rates_dict.setdefault(rate.date, []).append({"cargo_type": rate.cargo_type, "rate": str(rate.rate)})
 
         return rates_dict
-
-    @classmethod
-    async def close_db(cls) -> None:
-        await Tortoise.close_connections()
