@@ -57,7 +57,7 @@ ___
 6. Run the FastAPI app in the background
 
     ```python
-    uvicorn app:app --reload --log-level error
+    uvicorn app.main:app --reload --log-level error
     ```
 
 7. In case of a problem, the program will stop automatically or you can stop execution using
