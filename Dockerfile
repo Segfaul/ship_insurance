@@ -1,8 +1,8 @@
 FROM python:3.11
 
-RUN mkdir /app
+RUN mkdir /insurance_api
 
-WORKDIR /app
+WORKDIR /insurance_api
 
 COPY . .
 

@@ -10,12 +10,10 @@ services:
   app:
     container_name: insurance_api
     build: .
-    command:  bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; uvicorn app:app --reload --log-level info --host 0.0.0.0 --port 8000'
+    command:  bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; uvicorn app.main:app --reload --log-level info --host 0.0.0.0 --port 8000'
     ports:
       - "8008:8000"
     environment:
       - POSTGRES_HOST=db
-    env_file:
-      - .env
     depends_on:
       - db
