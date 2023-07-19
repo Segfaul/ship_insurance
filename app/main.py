@@ -3,8 +3,8 @@ import os
 from fastapi import FastAPI
 from dotenv import load_dotenv
 
-from app.services.dbapi import DatabaseService
-from app.routers import insurance
+from app.services.db_service import DatabaseService
+from app.routers import insurance_router
 
 
 env = os.environ.get
@@ -33,7 +33,7 @@ app = FastAPI(
 db_service = DatabaseService(DEBUG, POSTGRE_CON)
 
 
-app.include_router(insurance.router)
+app.include_router(insurance_router.router)
 
 
 @app.on_event("startup")

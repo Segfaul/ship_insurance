@@ -3,7 +3,7 @@ import json
 
 from fastapi import APIRouter, UploadFile, HTTPException
 
-from app.services.insurance import InsuranceService
+from app.services.insurance_service import InsuranceService
 
 
 router = APIRouter(

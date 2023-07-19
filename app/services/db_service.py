@@ -3,7 +3,7 @@ import json
 from tortoise import Tortoise
 
 from app.models.models import Rates
-from app.services.insurance import InsuranceService
+from app.services.insurance_service import InsuranceService
 
 
 class DatabaseService:
